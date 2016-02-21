@@ -19,4 +19,28 @@ class City extends Model
      * @var array
      */
     protected $hidden = [];
+
+    /**
+     * Get the post that owns the comment.
+     */
+    public function province()
+    {
+        return $this->belongsTo('App\Models\Province');
+    }    
+
+    /**
+     * Get the comments for the blog post.
+     */
+    public function zones()
+    {
+        return $this->hasMany('App\Models\Area');
+    }
+
+    /**
+     * Get the comments for the blog post.
+     */
+    public function barangays()
+    {
+        return $this->hasMany('App\Models\Barangay');
+    }    
 }

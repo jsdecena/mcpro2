@@ -19,4 +19,12 @@ class Province extends Model
      * @var array
      */
     protected $hidden = [];
+
+    /**
+     * Get the comments for the blog post.
+     */
+    public function city()
+    {
+        return $this->hasMany('App\Models\City');
+    }
 }

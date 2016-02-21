@@ -30,8 +30,15 @@ Route::group(['prefix' => 'api/v1' ], function () {
     
     Route::resource('authenticate', 'Api\AuthenticateController');
 
+    Route::resource('province',                   'Api\ProvinceApiController');
+    Route::resource('province.city',              'Api\ProvinceCityApiController');
+    
+    Route::resource('city',                       'Api\CityApiController');
+    Route::get('city/{id}/zones',                 'Api\CityApiController@zones');
+    Route::get('city/{id}/barangays',             'Api\CityApiController@barangays');    
+
     Route::group(['middleware' => ['jwt.auth']], function(){
-        Route::resource('user',                       'Api\UserApiController');
+        //FUTURE
     });
 });
 
